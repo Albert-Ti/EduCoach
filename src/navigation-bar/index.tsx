@@ -18,13 +18,22 @@ const NavigationBar: React.FC = () => {
 
         <ul className={cl.info}>
           <li>
+            <a className={cl.statistic} href='/'>
+              <img src='./weightlifter-excercise.svg' alt='' />
+              Главная
+            </a>
+          </li>
+          <li>
             <a className={cl.statistic} href='#'>
+              <img src='./stopwatch.svg' alt='' />
               Статистика
             </a>
           </li>
           <li>
             <a className={cl.rule} href='#'>
-              Правила
+              <img src='./cardiogram.svg' alt='' />
+
+              <span> Правила</span>
             </a>
           </li>
         </ul>
