@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap');
-
 @import url('./reset.scss');
-
 /* 
   font-family: 'DM Sans', Arial, sans-serif;
   font-family: 'Poppins', Arial, sans-serif;
@@ -10,8 +8,14 @@
 :root {
   --black: #171718;
   --white: rgba(255, 255, 255, 0.87);
-  --indigo: #535bf2;
+  --indigo: #4d5197;
   --black-border: #26292d;
+  --gold: goldenrod;
+
+  --accent: var(--gold);
+  --header-bg: var(--indigo);
+  --text-color-white: var(--white);
+  --text-color-black: var(--black);
 }
 
 #root {
@@ -20,5 +24,5 @@
   height: 100%;
   line-height: 1.5;
   color: var(--white);
-  background-color: #242424;
+  background-color: #252526;
 }

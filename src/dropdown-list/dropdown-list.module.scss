@@ -1,0 +1,19 @@
+.list {
+  width: 200px;
+  padding: 10px;
+  position: absolute;
+  background-color: var(--black);
+  top: 48px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .link {
+    color: var(--text-color-white);
+
+    &:hover {
+      color: var(--accent);
+    }
+  }
+}

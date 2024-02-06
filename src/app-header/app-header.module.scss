@@ -1,0 +1,20 @@
+.container {
+  padding: 30px 0;
+  background-color: var(--header-bg);
+
+  .content {
+    margin: auto;
+    max-width: 1100px;
+
+    .logo {
+      color: var(--text-color-white);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .accent {
+        color: var(--accent);
+      }
+    }
+  }
+}
