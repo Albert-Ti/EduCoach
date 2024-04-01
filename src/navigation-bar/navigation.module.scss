@@ -25,9 +25,15 @@
 
       .statistic {
         color: var(--text-color-white);
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
       .rule {
         color: var(--text-color-white);
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
     }
   }

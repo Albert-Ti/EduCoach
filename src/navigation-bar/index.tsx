@@ -1,35 +1,51 @@
 import React from 'react'
 import DropdownList from '../dropdown-list'
-import cl from './navigation.module.scss'
+import styles from './navigation.module.scss'
+import { Link, useMatch } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../hooks'
+import { setShowSortModal } from '../store/coach-card/slice'
 
 const NavigationBar: React.FC = () => {
-  const [sort, setSort] = React.useState('по популярности')
-  const [showDropdownList, setShowDropdownList] = React.useState(false)
+  const dispatch = useAppDispatch()
+  const [matchHome, matchStatistics, matchRule] = [
+    useMatch('/'),
+    useMatch('/statistics'),
+    useMatch('/rules'),
+  ]
+  const { sort, showSortModal } = useAppSelector(state => state.coachCard)
+
+  const handleShowSortModal = () => dispatch(setShowSortModal(!showSortModal))
 
   return (
-    <div className={cl.container}>
-      <div className={cl.content}>
-        <a onClick={() => setShowDropdownList(!showDropdownList)} className={cl.sort} href='#'>
-          Сортировка: <span className={cl.accent}>{sort}</span>
+    <nav className={styles.container}>
+      <div className={styles.content}>
+        <a onClick={handleShowSortModal} className={styles.sort} href='#'>
+          Сортировка: <span className={styles.accent}>{sort}</span>
         </a>
-        {showDropdownList && (
-          <DropdownList setSort={setSort} setShowDropdownList={setShowDropdownList} />
-        )}
+        {showSortModal && <DropdownList />}
 
-        <ul className={cl.info}>
+        <ul className={styles.info}>
           <li>
-            <a className={cl.statistic} href='#'>
-              Статистика
-            </a>
+            <Link to='/' className={styles.statistic}>
+              <img src='./weightlifter-excercise.svg' alt='' />
+              <span style={matchHome ? { color: 'goldenrod' } : {}}>Главная</span>
+            </Link>
           </li>
           <li>
-            <a className={cl.rule} href='#'>
-              Правила
-            </a>
+            <Link to='/statistics' className={styles.statistic}>
+              <img src='./stopwatch.svg' alt='' />
+              <span style={matchStatistics ? { color: 'goldenrod' } : {}}>Статистика</span>
+            </Link>
+          </li>
+          <li>
+            <Link to='/rules' className={styles.rule}>
+              <img src='./cardiogram.svg' alt='' />
+              <span style={matchRule ? { color: 'goldenrod' } : {}}>Правила</span>
+            </Link>
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   )
 }
 
