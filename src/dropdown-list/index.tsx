@@ -1,30 +1,29 @@
 import React from 'react'
-import cl from './dropdown-list.module.scss'
+import styles from './dropdown-list.module.scss'
+import { setShowSortModal, setSort } from '../store/coach-card/slice'
+import { useAppDispatch } from '../hooks'
 
-type DropdownListProps = {
-  setSort: (s: string) => void
-  setShowDropdownList: (s: boolean) => void
-}
+const DropdownList: React.FC = () => {
+  const dispatch = useAppDispatch()
 
-const DropdownList: React.FC<DropdownListProps> = ({ setSort, setShowDropdownList }) => {
   const handleClickList = (sort: string) => {
-    setSort(sort)
-    setShowDropdownList(false)
+    dispatch(setSort(sort))
+    dispatch(setShowSortModal(false))
   }
   return (
-    <ul className={cl.list}>
+    <ul className={styles.list}>
       <li onClick={() => handleClickList('по популярности')}>
-        <a className={cl.link} href='#'>
+        <a className={styles.link} href='#'>
           по популярности
         </a>
       </li>
       <li onClick={() => handleClickList('по рейтингу')}>
-        <a className={cl.link} href='#'>
+        <a className={styles.link} href='#'>
           по рейтингу
         </a>
       </li>
       <li onClick={() => handleClickList('по свободным')}>
-        <a className={cl.link} href='#'>
+        <a className={styles.link} href='#'>
           по свободным
         </a>
       </li>

@@ -1,31 +1,14 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import AppHeader from './app-header'
-import NavigationBar from './navigation-bar'
-import Home from './pages/home'
-import Rules from './pages/rules'
-import Statistics from './pages/statistics'
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/statistics',
-    element: <Statistics />,
-  },
-  {
-    path: '/rules',
-    element: <Rules />,
-  },
-])
+import { Provider } from 'react-redux'
+import { RouterProvider } from 'react-router-dom'
+import router from './router'
+import { store } from './store'
 
 function App() {
   return (
     <>
-      <AppHeader />
-      <NavigationBar />
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </>
   )
 }
