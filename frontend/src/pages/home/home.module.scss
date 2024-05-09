@@ -25,6 +25,7 @@
         border: 2px solid var(--brown);
         border-radius: 5px;
         color: var(--text-color-black);
+        cursor: pointer;
 
         p {
           white-space: nowrap;
@@ -32,12 +33,6 @@
           text-overflow: ellipsis;
         }
       }
-    }
-
-    .coachCardDetails {
-      flex: 1;
-      background: var(--silver);
-      border-radius: 5px;
     }
   }
 }

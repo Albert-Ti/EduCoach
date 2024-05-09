@@ -4,6 +4,7 @@ import NavigationBar from '../navigation-bar'
 import Home from '../pages/home'
 import Rules from '../pages/rules'
 import Statistics from '../pages/statistics'
+import CoachCard from '../pages/coach-card'
 
 const router = createBrowserRouter([
   {
@@ -12,7 +13,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home,
+        element: [<Home />],
       },
       {
         path: '/statistics',
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: '/rules',
         Component: Rules,
+      },
+      {
+        path: '/coach/:id',
+        Component: CoachCard,
       },
     ],
   },
