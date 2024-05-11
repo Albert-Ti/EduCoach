@@ -1,0 +1,67 @@
+name: coaching-staff
+services:
+  backend:
+    container_name: nest-backend
+    build:
+      context: ./backend
+      # MODE=[dev | prod] docker compose up -d --build. По умолчанию задан prod
+      target: ${MODE:-dev}
+    ports:
+      - 3001:3000
+    env_file:
+      - .env
+    depends_on:
+      db:
+        # будет запущен только после того, как сервис db будет считаться здоровым
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - net-backend
+
+  frontend:
+    container_name: react-frontend
+    build:
+      context: ./frontend
+      target: ${MODE:-dev}
+    ports:
+      - 3000:5173
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - net-frontend
+
+  db:
+    container_name: postgres-database
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - net-backend
+    # healthcheck используется для определения состояния здоровья контейнера
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - net-backend
+
+volumes:
+  db-data: {}
+
+networks:
+  net-backend: {}
+  net-frontend: {}
