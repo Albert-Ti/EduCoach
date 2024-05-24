@@ -1,9 +1,9 @@
 import React from 'react'
-import DropdownList from '../dropdown-list'
-import styles from './navigation.module.scss'
 import { Link, useMatch } from 'react-router-dom'
+import DropdownList from '../dropdown-list'
 import { useAppDispatch, useAppSelector } from '../hooks'
 import { setShowSortModal } from '../store/coach-card/slice'
+import styles from './navigation.module.scss'
 
 const NavigationBar: React.FC = () => {
   const dispatch = useAppDispatch()
