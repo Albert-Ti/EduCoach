@@ -21,6 +21,8 @@ ul,
 ol,
 p,
 body,
+figure,
+figcaption,
 button {
   margin: 0;
   padding: 0;
@@ -50,6 +52,6 @@ a:hover {
 
 *::-webkit-scrollbar-thumb {
   background: var(--silver);
-  border-radius: 3px;
+  border-radius: var(--radius-small);
   border: 2px solid var(--brown);
 }

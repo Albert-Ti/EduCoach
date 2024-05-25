@@ -4,9 +4,9 @@ import React from 'react'
 import { getOneCard } from '../../store/coach-card/slice'
 
 const CoachCard = () => {
+  const dispatch = useAppDispatch()
   const { id } = useParams()
   const { card } = useAppSelector(state => state.coachCard)
-  const dispatch = useAppDispatch()
 
   React.useEffect(() => {
     dispatch(getOneCard(+id!))

@@ -4,6 +4,7 @@ export type CoachCard = {
   lastName: string
   age: number
   gender: string
+  portfolio: string[]
   specialties: string[]
   certifications: string[]
   experienceYears: number
