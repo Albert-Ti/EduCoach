@@ -5,9 +5,7 @@
     "lastName": "Петров",
     "age": 32,
     "gender": "мужской",
-    "portfolio": [
-      "https://protennistv.ru/wp-content/uploads/7/1/9/7193c1aa0ff23197b0dad1494bc68660.jpeg"
-    ],
+    "portfolio": ["./example-avatar.jpeg"],
     "specialties": ["функциональный тренинг", "кардио", "питание"],
     "certifications": ["ACE Personal Trainer", "CPR/AED Certified"],
     "experienceYears": 8,

@@ -9,10 +9,9 @@ const AppHeader: React.FC = () => {
         <Link className={styles.logo} to='/'>
           <img className={styles.icon} src='./weight-gym.svg' alt='иконка веса' />
           <h1 className={styles.title}>
-            <span className={styles.accent}>Coaching</span> staff
+            <span className={styles.accent}>Edu</span>Coach
           </h1>
         </Link>
-
         <img style={{ width: 50 }} src='./cup-trophy.svg' alt='' />
       </div>
     </div>

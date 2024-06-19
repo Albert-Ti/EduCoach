@@ -1,4 +1,4 @@
-name: coaching-staff
+name: educoach
 services:
   backend:
     container_name: nest-backend

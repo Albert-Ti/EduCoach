@@ -25,10 +25,12 @@
 }
 
 #root {
-  font-family: 'Poppins', Arial, sans-serif;
-
   height: 100%;
   line-height: 1.5;
   color: var(--white);
   background-color: #252526;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
 }
