@@ -14,31 +14,34 @@ datasource db {
 }
 
 model User {
-  id Int @default(autoincrement()) @id
-  email String @unique
-  name String
-  avatar String
+  id        Int     @default(autoincrement()) @id
+  email     String  @unique
+  name      String
+  avatar    String
+  password  String
 }
 
 model Coach {
-  id Int @default(autoincrement()) @id
-  firstName String
-  lastName String
-  age Int
-  gender String
-  specialties String[]
-  certifications String[]
-  experienceYears Int
-  availableHours String[]
-  comments String[]
-  rating Float
-  contactInfo ContactInfo?
+  id                Int         @default(autoincrement()) @id
+  firstName         String
+  lastName          String
+  password          String
+  age               Int
+  gender            String
+  portfolio         String[]
+  specialties       String[]
+  certifications    String[]
+  experienceYears   Int
+  availableHours    String[]
+  comments          String[]
+  rating            Float
+  contactInfo       ContactInfo?
 }
 
 model ContactInfo {
-  email String @unique
-  phone String
-  location String
-  coach Coach @relation(fields: [coachId], references: [id])
-  coachId Int @unique
+  email     String  @unique
+  phone     String
+  location  String
+  coach     Coach   @relation(fields: [coachId], references: [id])
+  coachId   Int     @unique
 }
