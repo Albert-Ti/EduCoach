@@ -1,10 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateCoachDto } from './dto/create-coach-dto';
+import { CoachContactInfoService } from 'src/coach-contact-info/coach-contact-info.service';
 
 @Injectable()
 export class CoachService {
-  constructor(readonly prismaService: PrismaService) {}
+  constructor(
+    readonly prismaService: PrismaService,
+    readonly coachContactInfoService: CoachContactInfoService,
+  ) {}
 
   async findMany() {
     return await this.prismaService.coach.findMany({
@@ -19,11 +23,9 @@ export class CoachService {
       data: coachData,
     });
 
-    await this.prismaService.contactInfo.create({
-      data: {
-        ...contactInfo,
-        coachId: createdCoach.id,
-      },
+    await this.coachContactInfoService.create({
+      ...contactInfo,
+      coachId: createdCoach.id,
     });
 
     return createdCoach;
