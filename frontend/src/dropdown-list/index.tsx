@@ -12,20 +12,20 @@ const DropdownList: React.FC = () => {
   }
   return (
     <ul className={styles.list}>
-      <li onClick={() => handleClickList('по популярности')}>
-        <a className={styles.link} href='#'>
+      <li>
+        <button className={styles.link} onClick={() => handleClickList('по популярности')}>
           по популярности
-        </a>
+        </button>
       </li>
-      <li onClick={() => handleClickList('по рейтингу')}>
-        <a className={styles.link} href='#'>
+      <li>
+        <button className={styles.link} onClick={() => handleClickList('по рейтингу')}>
           по рейтингу
-        </a>
+        </button>
       </li>
-      <li onClick={() => handleClickList('по свободным')}>
-        <a className={styles.link} href='#'>
+      <li>
+        <button className={styles.link} onClick={() => handleClickList('по свободным')}>
           по свободным
-        </a>
+        </button>
       </li>
     </ul>
   )

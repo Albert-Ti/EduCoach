@@ -2,6 +2,7 @@ import React from 'react'
 import CoachDetails from '../../coach-details'
 import { useAppDispatch, useAppSelector } from '../../hooks'
 import { getOneCard } from '../../store/coach-card/slice'
+import { classes } from '../../utils/classes'
 import styles from './home.module.scss'
 
 const Home: React.FC = () => {
@@ -21,14 +22,21 @@ const Home: React.FC = () => {
               <p>
                 {el.firstName} {el.lastName}, возраст: {el.age}
               </p>
-              <p>{el.specialties.join(', ')}</p>
-              <p>опыт: {el.experienceYears}лет</p>
               <p>рейтинг: {el.rating}</p>
-              <p>комментариев: {el.comments.length}</p>
+              <p>комментарии: {el.comments.length}</p>
+              <p className={classes(styles.status, styles[`status_${el.status}`])}>
+                {el.status === 'available'
+                  ? 'Свободен'
+                  : el.status === 'busy'
+                  ? 'Занят'
+                  : 'Не в сети'}
+              </p>
             </li>
           ))}
         </ul>
-        <CoachDetails />
+        <div className={styles.details}>
+          <CoachDetails />
+        </div>
       </div>
     </main>
   )

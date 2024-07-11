@@ -8,27 +8,25 @@ const CoachDetails = () => {
   const avatar = card?.gender === 'мужской' ? './coach-men-example.jpg' : './coach-girl-example.jpg'
 
   return (
-    <div className={styles.coachCardDetails}>
-      {card && (
+    card && (
+      <div>
+        <figure className={styles.figure}>
+          <img className={styles.avatar} src={card?.portfolio[0] || avatar} alt='' />
+          <figcaption>
+            <CoachExperiences card={card} />
+          </figcaption>
+        </figure>
         <div>
-          <figure className={styles.figure}>
-            <img className={styles.avatar} src={card?.portfolio[0] || avatar} alt='' />
-            <figcaption>
-              <CoachExperiences card={card} />
-            </figcaption>
-          </figure>
-          <div>
-            comments: {card.comments.length}
-            <input
-              className={styles.commentInput}
-              type='text'
-              name='comment'
-              placeholder='Оставить отзыв...'
-            />
-          </div>
+          comments: {card.comments.length}
+          <input
+            className={styles.commentInput}
+            type='text'
+            name='comment'
+            placeholder='Оставить отзыв...'
+          />
         </div>
-      )}
-    </div>
+      </div>
+    )
   )
 }
 
